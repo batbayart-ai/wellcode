@@ -1,5 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import { BlogCard } from "@/components/storefront/BlogCard";
+import type { BlogPost } from "@prisma/client";
 
 export const metadata = {
   title: "Beauty Journal",
@@ -38,7 +39,7 @@ export default async function BlogPage() {
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {posts.map((post) => (
+            {posts.map((post: BlogPost) => (
               <BlogCard
                 key={post.id}
                 slug={post.slug}
